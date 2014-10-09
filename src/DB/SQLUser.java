@@ -19,8 +19,8 @@ abstract class SQLUser {
 	private Connection conn;
 
 	public SQLUser() {
-		// test();
-		conn = connect("83.251.251.65", "mydb", "tester", "good@password");
+		// test();//becuse comhem suger 83.251.251.65
+		conn = connect("10.0.1.2", "mydb", "tester", "good@password");
 		
 		/*Context initCtx = new InitialContext();
 
@@ -58,7 +58,7 @@ abstract class SQLUser {
 	}
 
 	public int addItemsToHistory(Item item, String mail) throws SQLException {
-		java.sql.PreparedStatement test = conn.prepareStatement("INSERT INTO history (userid,itemid) VALUES ('?,?')");
+		java.sql.PreparedStatement test = conn.prepareStatement("INSERT INTO history (userid,itemid) VALUES (?,?)");
 		test.setString(1, mail);
 		test.setString(2, item.getName());
 		return test.executeUpdate();
